@@ -1,0 +1,23 @@
+{
+    "name": "komparu/resolver",
+    "description": "Acts as a central service container for the Komparu packages",
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.4.2",
+        "mockery/mockery": "~0.9@dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "Komparu\\Resolver\\": "src"
+        }
+    },
+    "authors": [
+        {
+            "name": "Boy Hagemann",
+            "email": "boy.hagemann@komparu.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
