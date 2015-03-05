@@ -43,6 +43,12 @@ class ResolverTest extends PHPUnit_Framework_TestCase
         $this->assertInstanceOf(ResolvableClassWithArguments::class, $resolver->resolve('test', ['foo-value', 'bar-value']));
     }
 
+    public function testSetTags()
+    {
+        $resolver = new Resolver();
+        $resolver->tag('test', ['foo', 'bar']);
+    }
+
 }
 
 class ResolvableClassWithArguments
