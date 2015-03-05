@@ -118,8 +118,8 @@ class Resolver implements ResolverInterface
 
                 if(!isset($tagged[$key])) return false;
 
-                if(is_array($tag)) {
-                    return $this->matchesTags($tag, (array) $tagged[$key]);
+                if(is_array($tag) && $this->matchesTags($tag, (array) $tagged[$key])) {
+                    continue;
                 }
 
                 if($tagged[$key] != $tag) return false;

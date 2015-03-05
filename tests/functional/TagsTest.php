@@ -38,6 +38,7 @@ class TagsTest extends PHPUnit_Framework_TestCase
             [['foo' => true, 'bar' => false], ['foo' => true], ['success']],
             [['foo' => true, 'bar' => false], ['foo' => true, 'bar' => false], ['success']],
             [['index' => 'foo', 'type' => 'bar'], ['index' => ['foo', 'bar']], ['success']],
+            [['index' => 'foo', 'type' => 'bar'], ['index' => ['foo', 'bar'], 'type' => 'bar'], ['success']],
 
             // These tags should not match
             [['foo'], ['foo2']],
@@ -46,6 +47,7 @@ class TagsTest extends PHPUnit_Framework_TestCase
             [['foo', 'bar'], ['foo2', 'bar']],
             [['foo' => true, 'bar' => false], ['foo2' => true, 'bar' => false]],
             [['foo' => true, 'bar' => false], ['foo' => false, 'bar' => false]],
+            [['index' => 'foo', 'type' => 'bar'], ['index' => ['foo', 'bar'], 'type' => 'ba22z']],
         ];
     }
 
