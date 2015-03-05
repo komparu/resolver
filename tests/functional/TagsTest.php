@@ -37,6 +37,7 @@ class TagsTest extends PHPUnit_Framework_TestCase
             [['foo', 'bar'], ['foo', 'bar'], ['success']],
             [['foo' => true, 'bar' => false], ['foo' => true], ['success']],
             [['foo' => true, 'bar' => false], ['foo' => true, 'bar' => false], ['success']],
+            [['index' => 'foo', 'type' => 'bar'], ['index' => ['foo', 'bar']], ['success']],
 
             // These tags should not match
             [['foo'], ['foo2']],

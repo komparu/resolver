@@ -115,7 +115,14 @@ class Resolver implements ResolverInterface
 
             // Only resolve if all tags are matched.
             foreach($tags as $key => $tag) {
-                if(!isset($tagged[$key]) || $tagged[$key] != $tag) return false;
+
+                if(!isset($tagged[$key])) return false;
+
+                if(is_array($tag)) {
+                    return $this->matchesTags($tag, (array) $tagged[$key]);
+                }
+
+                if($tagged[$key] != $tag) return false;
             }
 
         }
