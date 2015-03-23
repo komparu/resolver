@@ -65,9 +65,15 @@ class Resolver implements ResolverInterface
 
             // Get the implementation using reflection.
             $class = $this->services[$alias];
-            $reflection = new \ReflectionClass($class);
 
-            return $reflection->newInstanceArgs($arguments);
+            // Only try to resolve the class if it exists
+            if(class_exists($class)) {
+                $reflection = new \ReflectionClass($class);
+                return $reflection->newInstanceArgs($arguments);
+            }
+
+            // Otherwise, just return the plain value
+            return $class;
         }
         catch(ReflectionException $e) {
             throw new NotResolvableException();
