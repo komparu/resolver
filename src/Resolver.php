@@ -66,6 +66,9 @@ class Resolver implements ResolverInterface
             // Get the implementation using reflection.
             $class = $this->services[$alias];
 
+            // Is it a concrete object? Then just return it.
+            if(!is_string($class)) return $class;
+
             // Only try to resolve the class if it exists
             if(class_exists($class)) {
                 $reflection = new \ReflectionClass($class);
