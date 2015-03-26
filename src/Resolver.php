@@ -148,6 +148,10 @@ class Resolver implements ResolverInterface
                     continue;
                 }
 
+                if(is_array($tagged[$key]) && in_array($tag, $tagged[$key])) {
+                    continue;
+                }
+
                 if($tagged[$key] != $tag) return false;
             }
 
