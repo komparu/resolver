@@ -71,7 +71,7 @@ class Resolver implements ResolverInterface
     public function resolve($alias, Array $arguments = [])
     {
         // We can only resolve registered aliases.
-        if(!$this->has($alias)) throw new NotRegisteredException();
+        if(!$this->has($alias)) throw new NotRegisteredException($alias);
 
         try {
 

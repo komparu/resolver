@@ -9,4 +9,15 @@
  */
 class NotRegisteredException extends \Exception
 {
+    protected $alias;
+
+    public function __construct($alias = null)
+    {
+        $this->alias = $alias;
+    }
+
+    public function getAlias()
+    {
+        return $this->alias;
+    }
 }
