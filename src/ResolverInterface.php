@@ -23,6 +23,13 @@ interface ResolverInterface
     public function resolve($alias, Array $arguments = []);
 
     /**
+     * Get all registered aliases.
+     *
+     * @return array
+     */
+    public function all();
+
+    /**
      * Check if the alias is registered yet.
      *
      * @param string $alias

@@ -31,14 +31,31 @@ class Resolver implements ResolverInterface
     }
 
     /**
+     * Get all registered aliases.
+     *
+     * @return array
+     */
+    public function all()
+    {
+        return $this->services;
+    }
+
+    /**
      * Tag one alias with one or more tags.
      *
      * @param string $alias
      * @param string|array $oneOrMoreTags
+     * @param bool $merge
      */
-    public function tag($alias, $oneOrMoreTags)
+    public function tag($alias, $oneOrMoreTags, $merge = false)
     {
-        $this->tagged[$alias] = (array) $oneOrMoreTags;
+        if($merge) {
+            $tags = $this->tagged[$alias];
+            $this->tagged[$alias] = array_merge($tags, $oneOrMoreTags);
+        }
+        else {
+            $this->tagged[$alias] = (array) $oneOrMoreTags;
+        }
     }
 
     /**
